@@ -1,21 +1,20 @@
-import adafruit_ccs811
+import adafruit_ads1x15.ads1115 as ADS
+import adafruit_ads1x15.analog_in
 import adafruit_bmp3xx
-import os
-import gc
+import adafruit_ccs811
+import adafruit_gps
+import adafruit_pcf8523
+import adafruit_sdcard
+import adafruit_sht31d
+import board
 import busio
 import digitalio
-import board
-import storage
-import adafruit_sdcard
-import neopixel
-import adafruit_pcf8523
-import time
+import gc
 import json
-import adafruit_ads1x15.ads1115 as ADS
-import adafruit_gps
-import adafruit_sht31d
-import digitalio
-import adafruit_ads1x15.analog_in
+import neopixel
+import os
+import storage
+import time
 
 # Cleanup anything left over
 gc.collect()
@@ -110,9 +109,9 @@ h2s_ae = adafruit_ads1x15.analog_in.AnalogIn(adc2, ADS.P3)
 
 # print the header to the data file
 meta_file = open('/sd/meta.json', 'w')
-data_file = open('/sd/data.csv', 'a')
+data_file = open('/sd/data.csv', 'a')  # We want to append in case of a restart
 data_file.write(
-    "month, date, year, hour, minute, second, fix, lat deg, long deg, fixq, fixq3d, sat, speed knots, pressure hPa, alt m, temp C, humidity %, eCO2 ppm, TVOC ppm, as1, as2, as3, as4, as5, as6, as7, as8, pms new, pm1.0s, pm2.5s, pm10.0s, pm1.0e, pm2.5e, pm10.0e, p0.3um, p0.5um, p1.0um, p2.5um, p10.0um\r\n")
+    "month, date, year, hour, minute, second, fix, lat deg, long deg, fixq, fixq3d, sat, speed knots, pressure hPa, alt m, temp C, humidity %, eCO2 ppm, TVOC ppm, as1, as2, as3, as4, as5, as6, as7, as8, pms new, pm1.0s, pm2.5s, pm10.0s, pm1.0e, pm2.5e, pm10.0e, p0.3um, p0.5um, p1.0um, p2.5um, p10.0um\n")
 data_file.flush()
 
 # Set the Neopixel to white now that we're ready!
@@ -166,7 +165,15 @@ while True:
 
     # Get the raw Alphasense readings and print them to the data file
     as_string = "%s,%s,%s,%s,%s,%s,%s,%s," % (
-        ox_we.voltage * 1000, ox_ae.voltage * 1000, co_we.voltage * 1000, co_ae.voltage * 1000, no_we.voltage * 1000, no_ae.voltage * 1000, h2s_we.voltage * 1000, h2s_ae.voltage * 1000)
+        ox_we.voltage * 1000,
+        ox_ae.voltage * 1000,
+        co_we.voltage * 1000,
+        co_ae.voltage * 1000,
+        no_we.voltage * 1000,
+        no_ae.voltage * 1000,
+        h2s_we.voltage * 1000,
+        h2s_ae.voltage * 1000
+    )
     print(as_string)
     data_file.write(as_string)
     del as_string
