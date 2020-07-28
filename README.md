@@ -1,6 +1,6 @@
 # AQ-drone
 
-The AQ-drone project is an open source air quality measuring system utilizing drone technology to conduct air quality metrics.  This project is inspired by the [JPL Open Source Rover Project](https://github.com/nasa-jpl/open-source-rover) project.
+The AQ-drone project is an open source air quality measuring system utilizing drone technology to conduct air quality metrics.  This project is inspired by the [JPL Open Source Rover Project](https://github.com/nasa-jpl/open-source-rover).
 
 <img src="images/drone.jpg" width="800">
 
