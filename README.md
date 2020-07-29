@@ -4,7 +4,7 @@ The AQ-drone project is an open source air quality measuring system utilizing dr
 
 <img src="images/drone.jpg" width="800">
 
-The goals of this projects are two fold:
+The goals of this project are two-fold:
 
 1. To develop a pedagogical curriculum from which students can apply engineering and science skills to a real problem
 
