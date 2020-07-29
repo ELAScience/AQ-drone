@@ -16,7 +16,7 @@ According to the EPA, air quality differs from region to region due to geographi
 
 As community air quality investigators, we need to educate various stakeholders in the community about the air they experience in their surroundings. These units of concern are the residents, municipalities, elected officials, industrial/commercial businesses.
 
-## Pedagogical Values
+## Pedagogical Value
 
 A key component of successful STEM instruction involves the application of concepts learned to real-world problems. Not only does this increase the retention of information and scientific inquiry, but, in the process, can lead to discoveries and contributions, thereby expanding the knowledge base as well as increasing the probability of pursuing a STEM-related career. 
 
